@@ -40,7 +40,7 @@ python3 barcode_assignment.py --input_path CLUSTER_PATH --output_path SAVE_FILE
 
 **III. Perform simulation test to demultiplex each sequence according to the in-barcodes.**
 
-**Timing: ~**1min for simulating 12 million data (-r 1000)
+**Timing:** ~1min for simulating 12 million data (-r 1000)
 
 To simulate sequencing data, run the `fastq_simulation.py` script. This requires specifying the input sequence file with barcode as the output of previous step (using the `-i` or `--input_path` option) and the output path (using the `-o` or `--output_path` option). Optionally, you can use `-r` or `--repeat` to specify the simulated sequencing depth (default is `-r 10`).
 
