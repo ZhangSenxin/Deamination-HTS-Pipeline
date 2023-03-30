@@ -8,9 +8,9 @@ _PATH: a folder path
 
 <br/>
 
-# barcode prepare
+# Barcode prepare
 
-**I. cluster inbarcode.**
+**I. Cluster inbarcode.**
 
 **Timing:** ~19min for 12000 sequences
 
@@ -24,7 +24,7 @@ python3 cluster_inbarcode.py --input_path SEQ_FILE --output_path CLUSTER_PATH
 
 <br/>
 
-**II. assign barcode to each sequenceh.**
+**II. Assign barcode to each sequenceh.**
 
 **Timing:** <1min for 12000 sequences
 
@@ -54,7 +54,7 @@ python3 fastq_simulation.py --input_path SEQ_FILE --output_path FASTQ_PATH
 
 # Deamination-HTS-Pipeline
 
-**I. multxreadsaccording to inbarcode**
+**I. Multx reads according to inbarcode**
 
 **Timing:** ~60 min for ~30 million reads
 
@@ -80,7 +80,7 @@ python3 read_fq.gz.py --meta_file META_FILE --file_path SEQ_PATH --save_path SA
 
 <br/>
 
-**III. basic mutation statistic**
+**III. Basic mutation statistic**
 
 Timing: ~10 min for ~30 million reads
 
@@ -96,7 +96,7 @@ python3 mut_summary.py --meta_file META_FILE --file_path SEQ_PATH --save_path SA
 
 <br/>
 
-**IV. motif mutation statistic**
+**IV. Motif mutation statistic**
 
 Timing: ~15 min for ~30 million reads
 
@@ -110,7 +110,7 @@ python3 mut_summary_2.py --meta_file META_FILE --file_path SEQ_PATH --save_path 
 
 <br/>
 
-**V. mapping to full-length reference**
+**V. Mapping to full-length reference**
 
 Timing: <1 min for ~30 million reads
 
@@ -124,7 +124,7 @@ python3 mapping2full_length_sequence.py --reference_path META_FILE --region_pat
 
 <br/>
 
-**VI. prepare visualization**
+**VI. Prepare visualization**
 
 Timing: <1 min for ~30 million reads
 
@@ -138,7 +138,7 @@ python3 data_produce.py --reference_path META_FILE --region_path REGION_FILE -
 
 <br/>
 
-**VII. plot figures**
+**VII. Plot figures**
 
 Timing: <1 min for ~30 million reads
 
