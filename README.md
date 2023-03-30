@@ -61,7 +61,7 @@ python3 fastq_simulation.py --input_path SEQ_FILE --output_path FASTQ_PATH
 In this step, we split the meta into 24 sub-metas, each containing a maximum of 500 sequences. This is because the program `fastq-multx` limits the number of sequences in each run. Then we run `fastq-multx` to split each read into different files according to barcode and inbarcode. Note that reads in each file are considered from the same reference sequence.
 
 ```shell
-bash multx.sh
+fastq-multx -x -B META_FILE -m 1 -d 1 -b R1.gz R2.gz -o OUT_R1.gz OUT_R2.gz
 ```
 
 <br/>
