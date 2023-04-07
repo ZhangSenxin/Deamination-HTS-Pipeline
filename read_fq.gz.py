@@ -112,8 +112,8 @@ def main():
 
     # 进入不同文件夹提取序列信息
     for direction in dir_list:
-        if direction[:3] != 'cut':
-            continue
+#         if direction[:3] != 'cut':
+#             continue
         path1 = path + direction + '/'
         file_list = os.listdir(path1)
         for file in file_list:
