@@ -14,8 +14,13 @@ warnings.filterwarnings("ignore")
 
 def get_index(data, da0, Class0, barcode):
     ind_all = pd.DataFrame(None)
+    barcode_len = barcode.shape[0]
     for i in range(len(Class0)):
         l = len(data.loc[da0.iloc[Class0[i], :].index])
+        if l > barcode_len:
+            raise ValueError('The number of barcodes is less than the number of a certain class. '
+                             'Please increase the combination of barcodes.')
+
         ind = pd.DataFrame(da0.iloc[Class0[i], :].index)
         index = pd.concat([ind, barcode.iloc[:l, :]], axis=1)
         ind_all = ind_all.append(index)
