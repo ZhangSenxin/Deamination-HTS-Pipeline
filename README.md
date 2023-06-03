@@ -70,7 +70,7 @@ fastq-multx -x -B META_FILE -m 1 -d 1 -b R1.gz R2.gz -o OUT_R1.gz OUT_R2.gz
 
 **Timing:** ~75 min for ~30 million reads
 
-To perform sequence annotation and mutation computation, we use `read_fq.gz.py`. The annotation step requires a reference file (shown in Table X, input as `-m` or `--meta_file`) to calculate mutation information. We specify the data path (input as `-f` or `--file_path`) and save path (input as `-s` or `--save_path`) to generate mutation profile files (shown in Table X). Optionally, we can use `-c` or `--chain` to specify the top strand (`-c 1`, default) or bottom strand (`-c 0`).
+To perform sequence annotation and mutation computation, we use `read_fq.gz.py`. The annotation step requires a reference file (shown as /meta/meta_12k_ref.txt, input as `-m` or `--meta_file`) to calculate mutation information. We specify the data path (input as `-f` or `--file_path`) and save path (input as `-s` or `--save_path`) to generate mutation profile files. Optionally, we can use `-c` or `--chain` to specify the top strand (`-c 1`, default) or bottom strand (`-c 0`).
 
 ```shell
 python3 read_fq.gz.py -m META_FILE -f SEQ_PATH -s SAVE_PATH -c 1
@@ -86,7 +86,7 @@ Timing: ~10 min for ~30 million reads
 
 To perform mutation statistics at base resolution (A, G, T, C, WRC, AGC, AGCT, WGCW, NWRC), run the program `mut_summary.py`. This program calculates the sum of mutations for all sequences and positions.
 
-You need a dedicated region reference file (shown as Table X) to specify region information for each read. Input this file as `-m` or `--meta_file`. Specify the data path (input as `-f` or `--file_path`) and save path (input as `-s` or `--save_path`) to generate a basic mutation statistic file.
+You need a dedicated region reference file (shown as /meta/IGHV_ref_kabat.txt) to specify region information for each read. Input this file as `-m` or `--meta_file`. Specify the data path (input as `-f` or `--file_path`) and save path (input as `-s` or `--save_path`) to generate a basic mutation statistic file.
 
 ```shell
 python3 mut_summary.py -m META_FILE -f SEQ_PATH -s SAVE_PATH
@@ -114,7 +114,7 @@ python3 mut_summary_2.py --meta_file META_FILE --file_path SEQ_PATH --save_path 
 
 Timing: <1 min for ~30 million reads
 
-To perform further analysis, we use `mapping2full_length_sequence.py`. This tool combines each 50-nt segment from the same V gene to obtain complete mutation information. To recover the full sequence, you will need the V gene reference (shown in table X, input as `-m` or `--reference_path`) and the region reference file (input as `-r` or `--region_path`). By specifying the data path (input as `-f` or `--file_path`), save path (input as `-s` or `--save_path`), and another mismatch path (input as `-i` or `--mismatch_path`), all the full length information will be generated in a specialized data format.
+To perform further analysis, we use `mapping2full_length_sequence.py`. This tool combines each 50-nt segment from the same V gene to obtain complete mutation information. To recover the full sequence, you will need the V gene reference (shown as /meta/V_region_kabat.csv, input as `-m` or `--reference_path`) and the region reference file (input as `-r` or `--region_path`). By specifying the data path (input as `-f` or `--file_path`), save path (input as `-s` or `--save_path`), and another mismatch path (input as `-i` or `--mismatch_path`), all the full length information will be generated in a specialized data format.
 
 ```shell
 python3 mapping2full_length_sequence.py -m META_FILE -r REGION_FILE -f SEQ_PATH -s SAVE_PATH -i MISMATCH_FILE
